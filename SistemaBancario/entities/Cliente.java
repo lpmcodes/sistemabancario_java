@@ -19,20 +19,9 @@ public class Cliente {
         return nome;
     }
     
-    public void setNome(String nome) {
-        if (nome != null && !nome.trim().isEmpty()) {
+    public void setNome(String nome) { // public torna o método acessível por qualquer classe; void não retorna nenhum valor; String nome recebe um parâmetro chamado "nome"
+        if (nome != null && !nome.trim().isEmpty()) { // o símoblo ! significa que se ele for diferente de ... tal ação acontece; trim remove espaços no início e no fim
             this.nome = nome;
-        }
-    }
-    
-    public String getEmail() {
-        return email;
-    }
-    
-    public void setEmail(String email) { // public torna o método acessível por qualquer classe; void não retorna nenhum valor; String nome recebe um parâmetro chamado "nome"
-        if (email != null && email.contains("@")) { // o símoblo ! significa que se ele for diferente de ... tal ação acontece; trim remove espaços no início e no fim
-            this.email = email;
-
             /* ex: Cliente cliente = new Cliente();
 
                 cliente.setNome("João Silva");     // ✅ Válido - atribui "João Silva"
@@ -44,8 +33,19 @@ public class Cliente {
         }
     }
     
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        if (email != null && email.contains("@")) {
+            this.email = email;
+        }
+    }
+    
     @Override // utilizado para quando vc for sobrescrever um método -> boa prática
     public String toString() {
         return "Cliente{cpf='" + cpf + "', nome='" + nome + "', email='" + email + "'}";
     }
 }
+
